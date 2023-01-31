@@ -1,0 +1,5 @@
+.vscode/
+*.exe
+bounded_buffer
+dinning_philosophers
+writer_reader

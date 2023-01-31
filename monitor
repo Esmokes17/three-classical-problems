@@ -1,0 +1,36 @@
+F = {...}
+
+class Monitor:
+    sym mutex = 1;
+    sym next = 0;
+    sym x_sem = 0;
+
+    int x_count = 0;
+    int next_count = 0;
+
+// wait (if busy == True)
+{
+    x_count++;
+    if (next_count > 0):
+        signal(next);
+    else:
+        signal(mutex);
+    wait(x_sem);
+    x_count--l
+}
+
+next.wait();
+F();
+if (next_count > 0):
+    signal(next);
+else:
+    signal(mutex);
+
+// signal
+{
+    if (x_counter > 0):
+        next_count++;
+        signal(x_sem);
+        wait(next);
+        next_count--;
+}
